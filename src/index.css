@@ -1,0 +1,193 @@
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------ */
+/* Design tokens                                                        */
+/* ------------------------------------------------------------------ */
+
+@theme {
+  --font-sans: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Archivo Variable', 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Charcoal typography and dark surfaces */
+  --color-ink: #1c1b19;
+  --color-ink-soft: #3b3935;
+  --color-muted: #5e5a53;
+  --color-night: #131210;
+  --color-night-soft: #22201d;
+
+  /* Warm off-white surfaces */
+  --color-paper: #f8f5ef;
+  --color-sand: #efe9df;
+  --color-stone: #e2dace;
+  --color-line: #ddd5c8;
+
+  /* Texas brick-red accent */
+  --color-brick-50: #fbf0ec;
+  --color-brick-100: #f5dcd3;
+  --color-brick-300: #e8917a;
+  --color-brick-400: #df6f55;
+  --color-brick-500: #c24a31;
+  --color-brick-600: #a53a24;
+  --color-brick-700: #862e1d;
+  --color-brick-800: #6a2618;
+
+  --shadow-card: 0 1px 2px rgb(28 27 25 / 0.06), 0 8px 24px -12px rgb(28 27 25 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(28 27 25 / 0.06), 0 22px 44px -18px rgb(28 27 25 / 0.32);
+
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-fade-in: fade-in 0.45s var(--ease-out-soft) both;
+  --animate-rise-in: rise-in 0.5s var(--ease-out-soft) both;
+  --animate-pop-in: pop-in 0.35s var(--ease-out-soft) both;
+  --animate-slide-down: slide-down 0.32s var(--ease-out-soft) both;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+  @keyframes rise-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+  }
+  @keyframes pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px) scale(0.98);
+    }
+  }
+  @keyframes slide-down {
+    from {
+      opacity: 0;
+      transform: translateY(-12px);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Base                                                                 */
+/* ------------------------------------------------------------------ */
+
+@layer base {
+  html {
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-balance;
+    font-optical-sizing: auto;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-brick-500);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-brick-100);
+    color: var(--color-ink);
+  }
+
+  dialog::backdrop {
+    background: rgb(19 18 16 / 0.82);
+    backdrop-filter: blur(3px);
+  }
+
+  html.scroll-locked {
+    overflow: hidden;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Reusable pieces                                                      */
+/* ------------------------------------------------------------------ */
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-3 font-display text-xs font-semibold tracking-[0.2em] text-brick-600 uppercase;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-0.5 w-8 bg-current;
+  }
+  .eyebrow-light {
+    @apply text-brick-300;
+  }
+
+  /* Scroll-reveal: content is visible by default and only animates once JS is running. */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.7s var(--ease-out-soft),
+      transform 0.7s var(--ease-out-soft);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  .map-pulse {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: map-pulse 2.6s var(--ease-out-soft) infinite;
+  }
+
+  .field-input {
+    @apply block w-full rounded-md border border-line bg-white px-4 py-3 text-base text-ink shadow-[inset_0_1px_1px_rgb(28_27_25/0.04)] transition-colors duration-200 placeholder:text-muted/70 hover:border-stone focus:border-brick-600 focus:ring-2 focus:ring-brick-600/20 focus:outline-none aria-[invalid=true]:border-brick-600 aria-[invalid=true]:bg-brick-50/40;
+  }
+}
+
+@keyframes map-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
