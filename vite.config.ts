@@ -4,7 +4,7 @@ import { defineConfig, loadEnv, type HtmlTagDescriptor, type Plugin } from 'vite
 import { company, contactLine, fullAddress, hasEmail } from './src/config/company.ts';
 import { images } from './src/data/images.ts';
 import { en } from './src/i18n/en.ts';
-import { HERO_IMAGE_QUALITY, HERO_IMAGE_WIDTHS, photoSrcSet, photoUrl } from './src/lib/photo.ts';
+import { HERO_IMAGE_QUALITY, HERO_IMAGE_WIDTHS, photoSrcSet, photoUrl, setPhotoBase } from './src/lib/photo.ts';
 
 const fillCompany = (text: string) =>
   text.replaceAll('{company}', company.name).replaceAll('{years}', String(company.experienceYears));
@@ -17,8 +17,10 @@ const fillCompany = (text: string) =>
 function seo(siteUrl: string, basePath: string): Plugin {
   const title = fillCompany(en.meta.title);
   const description = fillCompany(en.meta.description);
-  const ogImage = photoUrl(images.hero, 1200, 1200 / 630, 80);
   const pageUrl = siteUrl ? `${siteUrl}${basePath}` : '';
+  // Social previews need an absolute URL; `public/og-image.jpg` is a 1200x630 crop of the hero photo.
+  const ogImage = `${pageUrl || basePath}og-image.jpg`;
+  setPhotoBase(basePath);
 
   const structuredData = {
     '@context': 'https://schema.org',
@@ -29,6 +31,13 @@ function seo(siteUrl: string, basePath: string): Plugin {
     image: ogImage,
     telephone: company.phone.dial || company.phone.display,
     ...(hasEmail() && { email: company.email }),
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: company.openingHours.days,
+      opens: company.openingHours.opens,
+      closes: company.openingHours.closes,
+    },
+    logo: `${pageUrl || basePath}brand/logo-black.png`,
     address: {
       '@type': 'PostalAddress',
       ...(company.address.street ? { streetAddress: company.address.street } : {}),

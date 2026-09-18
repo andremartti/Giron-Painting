@@ -19,9 +19,12 @@ export function Projects() {
     [filter],
   );
 
+  // Only offer categories that have at least one project.
   const filters: { value: Filter; label: string }[] = [
     { value: 'all', label: t.projects.all },
-    ...projectCategories.map((category) => ({ value: category, label: t.projects.categories[category] })),
+    ...projectCategories
+      .filter((category) => projects.some((project) => project.category === category))
+      .map((category) => ({ value: category, label: t.projects.categories[category] })),
   ];
 
   return (
@@ -35,7 +38,7 @@ export function Projects() {
           align="split"
         />
 
-        <Reveal className="mt-10 flex flex-col gap-4 lg:mt-14 lg:flex-row lg:items-center lg:justify-between">
+        <Reveal className="mt-10 lg:mt-14">
           <div
             role="group"
             aria-label={t.projects.filterLabel}
@@ -60,7 +63,6 @@ export function Projects() {
               );
             })}
           </div>
-          <p className="font-mono text-xs text-muted">{t.projects.placeholderNote}</p>
         </Reveal>
 
         <p className="sr-only" aria-live="polite">
@@ -83,13 +85,20 @@ export function Projects() {
                   type="button"
                   onClick={() => setOpenIndex(index)}
                   aria-haspopup="dialog"
-                  aria-label={`${f(t.projects.open, { title: copy.title })} — ${t.projects.categories[project.category]}, ${project.location}`}
+                  aria-label={[
+                    f(t.projects.open, { title: copy.title }),
+                    t.projects.categories[project.category],
+                    project.location,
+                  ]
+                    .filter(Boolean)
+                    .join(' — ')}
                   className="group relative block size-full overflow-hidden rounded-lg bg-stone text-left shadow-card"
                 >
                   <Photo
                     src={project.image}
                     alt={copy.alt}
                     ratio={4 / 3}
+                    position={project.position}
                     widths={featured ? [640, 960, 1280] : [480, 720, 960]}
                     sizes={
                       featured
@@ -111,10 +120,12 @@ export function Projects() {
                     >
                       {copy.title}
                     </span>
-                    <span className="mt-1.5 flex items-center gap-1.5 text-sm text-white/75">
-                      <MapPin className="size-3.5" aria-hidden="true" />
-                      {project.location}
-                    </span>
+                    {project.location && (
+                      <span className="mt-1.5 flex items-center gap-1.5 text-sm text-white/75">
+                        <MapPin className="size-3.5" aria-hidden="true" />
+                        {project.location}
+                      </span>
+                    )}
                   </span>
                   <span
                     aria-hidden="true"

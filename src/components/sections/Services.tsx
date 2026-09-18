@@ -19,6 +19,7 @@ function ServiceCard({ service, onOpen }: { service: Service; onOpen: () => void
           src={service.image}
           alt={copy.imageAlt}
           ratio={4 / 3}
+          position={service.position}
           widths={[400, 640, 880]}
           sizes="(min-width: 1280px) 19rem, (min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
           className="size-full transition-transform duration-700 ease-out group-hover:scale-105"

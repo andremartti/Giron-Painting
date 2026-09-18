@@ -19,14 +19,11 @@ export function About() {
               ratio={4 / 5}
               widths={[480, 720, 960]}
               sizes="(min-width: 1024px) 34rem, 90vw"
+              position="center 30%"
               className="aspect-[4/5] w-full"
             />
-            {/* Placeholder marker — remove once a real team or project photo is used. */}
-            <span className="absolute bottom-4 left-4 max-w-[45%] rounded bg-night/80 px-2.5 py-1.5 font-mono text-[0.6875rem] tracking-wide text-white backdrop-blur-sm">
-              {t.about.photoLabel}
-            </span>
           </div>
-          <p className="absolute top-6 right-0 flex items-center gap-3 rounded-md bg-brick-600 px-4 py-3 text-white shadow-lift sm:top-10 sm:px-5 sm:py-4">
+          <p className="absolute bottom-16 left-3 flex flex-col items-start gap-1.5 rounded-md bg-brick-600 px-3.5 py-3 text-white shadow-lift sm:bottom-20 sm:left-5 sm:px-4 sm:py-3.5">
             <span className="font-display text-3xl leading-none font-extrabold sm:text-4xl">
               {f(t.about.experienceValue)}
             </span>
@@ -41,6 +38,7 @@ export function About() {
               ratio={1}
               widths={[320, 480]}
               sizes="(min-width: 1024px) 15rem, 40vw"
+              position="center 22%"
               className="aspect-square w-full"
             />
           </div>

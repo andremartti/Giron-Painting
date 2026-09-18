@@ -25,9 +25,9 @@ export function Hero() {
       />
       <div
         aria-hidden="true"
-        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(19_18_16/0.92)_0%,rgb(19_18_16/0.72)_45%,rgb(19_18_16/0.25)_100%)]"
+        className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(19_18_16/0.9)_0%,rgb(19_18_16/0.62)_45%,rgb(19_18_16/0.12)_100%)]"
       />
-      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-gradient-to-t from-night/85 to-transparent" />
+      <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-gradient-to-t from-night/75 to-transparent" />
 
       <div className="container-site flex flex-1 items-center pt-32 pb-14 sm:pt-36 lg:pb-20">
         <div className="max-w-3xl">

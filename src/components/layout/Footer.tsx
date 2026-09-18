@@ -27,7 +27,7 @@ export function Footer() {
     <footer className="bg-night text-white">
       <div className="container-site grid gap-12 py-16 sm:py-20 lg:grid-cols-12 lg:gap-10">
         <div className="lg:col-span-4">
-          <Logo tone="light" />
+          <Logo className="h-14 sm:h-16" />
           <p className="mt-6 max-w-sm leading-relaxed text-white/70">{t.footer.description}</p>
 
           <h2 className={`${headingClass} mt-8`}>{t.footer.socialTitle}</h2>

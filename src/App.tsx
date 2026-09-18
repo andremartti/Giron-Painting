@@ -12,6 +12,7 @@ import { ServiceAreas } from './components/sections/ServiceAreas';
 import { Services } from './components/sections/Services';
 import { Testimonials } from './components/sections/Testimonials';
 import { WhyChooseUs } from './components/sections/WhyChooseUs';
+import { WhatsAppButton } from './components/ui/WhatsAppButton';
 import { EstimateProvider } from './context/EstimateContext';
 import { useLanguage } from './i18n/LanguageContext';
 import { LegalPage } from './pages/LegalPage';
@@ -98,6 +99,7 @@ export default function App() {
         <LegalPage kind={view} />
       )}
       <Footer />
+      <WhatsAppButton />
     </EstimateProvider>
   );
 }

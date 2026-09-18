@@ -41,6 +41,7 @@ export function WhyChooseUs() {
                 ratio={4 / 3}
                 widths={[480, 720, 960]}
                 sizes="(min-width: 1280px) 30rem, 40vw"
+                position="center 16%"
                 className="aspect-[4/3] w-full"
               />
               <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1.5 bg-brick-600" />

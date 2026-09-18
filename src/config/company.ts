@@ -23,8 +23,11 @@ export const company = {
     dial: '+12144170701',
   },
 
+  /** WhatsApp number, digits only with country code (e.g. "12144170701"). Leave empty to hide WhatsApp. */
+  whatsapp: '12144170701',
+
   /** Leave empty to hide the email everywhere until the address exists. */
-  email: '',
+  email: 'gironpaintingtx@gmail.com',
 
   address: {
     /** Street address, e.g. "1234 Example St, Suite 100". Leave empty to show only the city. */
@@ -36,10 +39,17 @@ export const company = {
     countryCode: 'US',
   },
 
-  /** Business hours, one line per language. */
+  /** Business hours as shown on the site, one line per language. */
   hours: {
-    en: '7:00 AM – 8:00 PM',
-    es: '7:00 a. m. – 8:00 p. m.',
+    en: 'Mon – Sat, 7:00 AM – 8:00 PM',
+    es: 'Lun – Sáb, 7:00 a. m. – 8:00 p. m.',
+  },
+
+  /** Same hours in machine-readable form for Google (schema.org openingHoursSpecification). */
+  openingHours: {
+    days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    opens: '07:00',
+    closes: '20:00',
   },
 
   /**
@@ -56,7 +66,7 @@ export const company = {
    * Cities listed in the Service Areas section and in the structured data.
    * Confirm this list with the business owner before launch.
    */
-  serviceAreas: ['Plano', 'Frisco', 'Allen', 'McKinney', 'Richardson', 'Carrollton', 'The Colony'],
+  serviceAreas: ['Plano', 'Frisco', 'Allen', 'McKinney', 'Celina', 'Richardson', 'Carrollton', 'The Colony'],
 
   /**
    * Final public URL, e.g. "https://www.example.com". Used for the canonical
@@ -84,6 +94,13 @@ export function phoneHref(): string | undefined {
 /** `mailto:` link for the business email, or `undefined` while it's a placeholder. */
 export function emailHref(): string | undefined {
   return isPlaceholder(company.email) ? undefined : `mailto:${company.email}`;
+}
+
+/** WhatsApp chat link with an optional pre-filled message, or `undefined` if no number is set. */
+export function whatsappHref(message?: string): string | undefined {
+  const number = company.whatsapp.replace(/\D/g, '');
+  if (!number) return undefined;
+  return `https://wa.me/${number}${message ? `?text=${encodeURIComponent(message)}` : ''}`;
 }
 
 /** Whether an email (real or bracketed placeholder) should be shown. Empty hides it. */

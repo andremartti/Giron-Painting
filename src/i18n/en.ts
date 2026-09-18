@@ -22,6 +22,9 @@ export const en = {
     newTab: '(opens in a new tab)',
     /** {phone} → phone number */
     call: 'Call {phone}',
+    whatsapp: 'Message us on WhatsApp',
+    /** Pre-filled first message in WhatsApp */
+    whatsappMessage: "Hi {company}! I'd like to request a free estimate.",
   },
 
   language: {
@@ -41,7 +44,6 @@ export const en = {
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
     homeLink: '{company} — home',
-    tagline: 'Construction & Painting',
   },
 
   hero: {
@@ -51,7 +53,7 @@ export const en = {
     text: 'Professional construction, remodeling, and interior & exterior painting services for homes and businesses in Plano, Texas and surrounding areas.',
     primaryCta: 'Get a Free Estimate',
     secondaryCta: 'View Our Services',
-    imageAlt: 'Newly finished two-story stone home with a landscaped front yard at sunset',
+    imageAlt: 'Home with freshly painted white brick, stone accents, and dark garage doors in Frisco, Texas',
     highlightsLabel: 'What we do',
     highlights: [
       '{years}+ Years of Experience',
@@ -82,7 +84,7 @@ export const en = {
           'Protecting floors and furnishings',
           'Cleanup once the work is complete',
         ],
-        imageAlt: 'Paint roller applying blue paint over a white interior wall',
+        imageAlt: 'Office with walls and built-in cabinets painted sage green',
       },
       exterior: {
         title: 'Exterior Painting',
@@ -96,7 +98,7 @@ export const en = {
           'Cleaning, scraping, and caulking before painting',
           'Paint and color selection guidance',
         ],
-        imageAlt: 'Two painters on ladders painting the exterior of a two-story house',
+        imageAlt: 'Two-story home with freshly painted white brick and dark garage doors',
       },
       residential: {
         title: 'Residential Construction',
@@ -110,7 +112,7 @@ export const en = {
           'Coordination of finishing work',
           'Clear scope and project planning',
         ],
-        imageAlt: 'Wood roof trusses on a house under construction against a blue sky',
+        imageAlt: 'Crew framing a new garage roof on a home in Celina, Texas',
       },
       commercial: {
         title: 'Commercial Construction',
@@ -124,7 +126,7 @@ export const en = {
           'Repairs and property updates',
           'Scheduling around business hours when possible',
         ],
-        imageAlt: 'Construction crew working inside a large commercial building with polished concrete floors',
+        imageAlt: 'Crew on a boom lift working on the exterior of a commercial building',
       },
       remodeling: {
         title: 'Remodeling',
@@ -138,7 +140,7 @@ export const en = {
           'Flooring, trim, and finish updates',
           'Painting and final touches',
         ],
-        imageAlt: 'Remodeled kitchen with a marble waterfall island, white cabinets, and pendant lights',
+        imageAlt: 'Remodeled kitchen with white shaker cabinets and butcher-block countertops',
       },
       drywall: {
         title: 'Drywall & Wall Repair',
@@ -166,7 +168,7 @@ export const en = {
           'Ceilings and hard-to-reach areas',
           'Cleaning, sanding, and priming',
         ],
-        imageAlt: 'Kitchen with sage green painted cabinets and marble countertops',
+        imageAlt: 'Kitchen cabinets painted white with dark granite countertops',
       },
       renovations: {
         title: 'General Renovations',
@@ -181,7 +183,7 @@ export const en = {
           'Repairs before selling or moving in',
           'Property improvements for owners and managers',
         ],
-        imageAlt: 'Room in the middle of a renovation with exposed framing and temporary support posts',
+        imageAlt: 'Remodeled living room with gray walls, a painted brick fireplace, and new flooring',
       },
     },
   },
@@ -191,7 +193,7 @@ export const en = {
     title: 'Why Choose {company}?',
     intro:
       "Hiring a contractor means trusting someone with your property. Here's what you can expect when you work with our team.",
-    imageAlt: 'Painter on a rope access line painting a large white wall',
+    imageAlt: 'Our crew working on a roof, replacing siding next to a chimney',
     items: {
       experience: {
         title: '{years}+ Years of Experience',
@@ -234,19 +236,17 @@ export const en = {
       'Painting, drywall, remodeling, and construction',
       'Communication from estimate to walkthrough',
     ],
-    photoLabel: '[TEAM OR PROJECT PHOTO]',
     experienceValue: '{years}+',
     experienceLabel: 'Years of experience',
-    imageAlt: 'Painter standing on a ladder while painting the exterior of a white house',
-    detailAlt: 'Close-up of a paint roller applying fresh white paint to an interior wall',
+    imageAlt: 'Team member on a scissor lift working on the exterior of a commercial building',
+    detailAlt: 'Crew working on a roof gable with tan lap siding',
     cta: 'Learn More About Us',
   },
 
   projects: {
     eyebrow: 'Portfolio',
     title: 'Our Recent Work',
-    subtitle: 'A look at the kinds of painting, remodeling, and construction projects we take on.',
-    placeholderNote: '[Sample photos — replace with images of your completed projects]',
+    subtitle: 'Painting, remodeling, and construction projects completed by our team across the DFW area.',
     filterLabel: 'Filter projects by category',
     all: 'All',
     categories: {
@@ -266,53 +266,53 @@ export const en = {
     /** {current}, {total} */
     counter: '{current} of {total}',
     items: {
-      interiorRoom: {
-        title: 'Interior Walls & Trim',
-        alt: 'Empty room with freshly painted gray walls, white trim, and wood floors',
+      exteriorFrisco: {
+        title: 'Exterior Home Painting',
+        alt: 'Two-story home with freshly painted white brick, stone accents, and dark garage doors in Frisco, Texas',
       },
-      exteriorFarmhouse: {
-        title: 'Two-Story Exterior Painting',
-        alt: 'White farmhouse-style home with a dark roof and lit windows at dusk',
+      kitchenFrisco: {
+        title: 'Kitchen Cabinets, Marble & Lighting',
+        alt: 'Kitchen with white and dark painted cabinets, a large marble island, and brass pendant lights',
       },
-      remodelKitchen: {
-        title: 'Kitchen Update',
-        alt: 'Kitchen with white cabinets, a farmhouse sink, and stainless steel appliances',
+      officeFrisco: {
+        title: 'Office Cabinets & Wall Painting',
+        alt: 'Office with built-in cabinets and walls painted sage green, wood floors, and a ceiling fan',
       },
-      commercialLobby: {
-        title: 'Commercial Lobby Finish-Out',
-        alt: 'Modern commercial lobby with wood wall panels and a stone reception desk',
+      garageRoofCelina: {
+        title: 'Tornado-Damaged Garage Roof Repair',
+        alt: 'Crew rebuilding a garage roof with new framing and house wrap after tornado damage',
       },
-      exteriorBrick: {
-        title: 'Brick Home Exterior & Trim',
-        alt: 'Two-story brick home with a landscaped front yard in a residential neighborhood',
+      kitchenCabinets: {
+        title: 'Kitchen Cabinet Painting',
+        alt: 'Kitchen with cabinets painted white, dark granite countertops, and pendant lights',
       },
-      constructionFraming: {
-        title: 'New Home Framing',
-        alt: 'Wood-framed two-story house under construction with scaffolding',
+      sidingRoof: {
+        title: 'Siding Replacement & Painting',
+        alt: 'Three workers on a shingle roof replacing siding next to a chimney chase',
       },
-      interiorLiving: {
-        title: 'Living Room Refresh',
-        alt: 'Modern living room with neutral painted walls, a sectional sofa, and large windows',
+      commercialExterior: {
+        title: 'Commercial Building Exterior',
+        alt: 'Workers on a boom lift installing exterior panels on a commercial building wrapped in house wrap',
       },
-      remodelBath: {
-        title: 'Bathroom Remodel',
-        alt: 'Remodeled bathroom with a glass shower, double vanity, and wood-look flooring',
+      homeLiving: {
+        title: 'Whole-Home Remodel: Living Room',
+        alt: 'Remodeled living room with gray walls, a painted brick fireplace, recessed lights, and wood-look flooring',
       },
-      constructionInterior: {
-        title: 'Interior Framing & Drywall',
-        alt: 'Interior space under construction with metal studs and new drywall panels',
+      roofing: {
+        title: 'Roofing & Siding Work',
+        alt: 'Two workers on a roof with temporary wood supports, working on a gable with tan lap siding',
       },
-      exteriorSiding: {
-        title: 'Siding & Porch Painting',
-        alt: 'Two-story home with gray siding, white trim, and a covered front porch',
+      balconyFrisco: {
+        title: 'Balcony Flooring',
+        alt: 'Balcony with new stone tile flooring and a black metal railing',
       },
-      commercialOffice: {
-        title: 'Office Interior Renovation',
-        alt: 'Open office with rows of desks, office chairs, and recessed ceiling lights',
+      homeKitchen: {
+        title: 'Whole-Home Remodel: Kitchen',
+        alt: 'Remodeled kitchen with white shaker cabinets, butcher-block countertops, and stainless steel appliances',
       },
-      interiorOpen: {
-        title: 'Open Living Area Painting',
-        alt: 'Living room with white walls, a wood ceiling, and floor-to-ceiling windows',
+      closet: {
+        title: 'Closet Remodel',
+        alt: 'Walk-in closet with white shelving, drawers, hanging rods, and dark wood floors',
       },
     },
   },
@@ -376,6 +376,7 @@ export const en = {
       "Share a few details about your project and we'll follow up to talk through next steps and schedule your free estimate.",
     infoTitle: 'Contact Information',
     phone: 'Phone',
+    whatsapp: 'WhatsApp & Text',
     email: 'Email',
     address: 'Address',
     hours: 'Business Hours',

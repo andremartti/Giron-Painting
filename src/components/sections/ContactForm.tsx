@@ -195,7 +195,7 @@ export function ContactForm() {
   const labelClass = 'mb-2 block text-sm font-semibold text-ink';
   const legendClass = 'mb-2.5 text-sm font-semibold text-ink';
   const choiceClass =
-    'flex min-h-12 cursor-pointer items-center gap-3 rounded-md border border-line bg-white px-4 py-2.5 text-[0.9375rem] font-medium text-ink transition-colors hover:border-stone has-[:checked]:border-brick-600 has-[:checked]:bg-brick-50';
+    'flex min-h-12 min-w-[8.5rem] flex-1 cursor-pointer items-center gap-3 rounded-md border border-line bg-white px-4 py-2.5 text-[0.9375rem] font-medium text-ink transition-colors hover:border-stone has-[:checked]:border-brick-600 has-[:checked]:bg-brick-50';
 
   return (
     <form noValidate onSubmit={handleSubmit} aria-labelledby={titleId} className={`relative ${card}`}>
@@ -320,12 +320,12 @@ export function ContactForm() {
           <FieldError name="projectType" message={message('projectType')} />
         </div>
 
-        <fieldset aria-describedby={describedBy('propertyType')}>
+        <fieldset aria-describedby={describedBy('propertyType')} className="min-w-0">
           <legend className={legendClass}>
             {form.propertyType}
             <RequiredMark />
           </legend>
-          <div className="grid grid-cols-2 gap-2.5">
+          <div className="flex flex-wrap gap-2.5">
             {propertyTypes.map((type) => (
               <label key={type} className={choiceClass}>
                 <input
@@ -345,12 +345,12 @@ export function ContactForm() {
           <FieldError name="propertyType" message={message('propertyType')} />
         </fieldset>
 
-        <fieldset aria-describedby={describedBy('contactMethod')} className="sm:col-span-2">
+        <fieldset aria-describedby={describedBy('contactMethod')} className="min-w-0 sm:col-span-2">
           <legend className={legendClass}>
             {form.contactMethod}
             <RequiredMark />
           </legend>
-          <div className="grid gap-2.5 min-[420px]:grid-cols-3">
+          <div className="flex flex-wrap gap-2.5">
             {contactMethods.map((method) => (
               <label key={method} className={choiceClass}>
                 <input

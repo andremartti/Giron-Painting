@@ -20,6 +20,8 @@ export const es: Translations = {
     socialNotSet: '{network}: enlace disponible próximamente',
     newTab: '(se abre en una pestaña nueva)',
     call: 'Llamar al {phone}',
+    whatsapp: 'Escríbanos por WhatsApp',
+    whatsappMessage: '¡Hola, {company}! Me gustaría pedir un estimado gratis.',
   },
 
   language: {
@@ -39,7 +41,6 @@ export const es: Translations = {
     openMenu: 'Abrir menú',
     closeMenu: 'Cerrar menú',
     homeLink: '{company}: inicio',
-    tagline: 'Construcción y pintura',
   },
 
   hero: {
@@ -49,7 +50,7 @@ export const es: Translations = {
     text: 'Servicios profesionales de construcción, remodelación y pintura interior y exterior para casas y negocios en Plano, Texas y áreas cercanas.',
     primaryCta: 'Pida su estimado gratis',
     secondaryCta: 'Ver nuestros servicios',
-    imageAlt: 'Casa de piedra de dos pisos recién terminada, con jardín frontal, al atardecer',
+    imageAlt: 'Casa con ladrillo recién pintado de blanco, detalles de piedra y puertas de garaje oscuras en Frisco, Texas',
     highlightsLabel: 'Lo que hacemos',
     highlights: [
       'Más de {years} años de experiencia',
@@ -80,7 +81,7 @@ export const es: Translations = {
           'Protección de pisos y muebles',
           'Limpieza al terminar el trabajo',
         ],
-        imageAlt: 'Rodillo aplicando pintura azul sobre una pared interior blanca',
+        imageAlt: 'Oficina con paredes y muebles empotrados pintados de verde salvia',
       },
       exterior: {
         title: 'Pintura exterior',
@@ -94,7 +95,7 @@ export const es: Translations = {
           'Limpieza, raspado y sellado antes de pintar',
           'Orientación para elegir pintura y colores',
         ],
-        imageAlt: 'Dos pintores en escaleras pintando el exterior de una casa de dos pisos',
+        imageAlt: 'Casa de dos pisos con ladrillo recién pintado de blanco y puertas de garaje oscuras',
       },
       residential: {
         title: 'Construcción residencial',
@@ -108,7 +109,7 @@ export const es: Translations = {
           'Coordinación de los acabados',
           'Alcance claro y planificación del proyecto',
         ],
-        imageAlt: 'Armazón de madera del techo de una casa en construcción bajo un cielo azul',
+        imageAlt: 'Equipo construyendo la estructura de un techo de garaje nuevo en Celina, Texas',
       },
       commercial: {
         title: 'Construcción comercial',
@@ -122,7 +123,7 @@ export const es: Translations = {
           'Reparaciones y actualizaciones de la propiedad',
           'Horarios de trabajo coordinados con su negocio cuando sea posible',
         ],
-        imageAlt: 'Equipo de construcción trabajando dentro de un gran edificio comercial con piso de concreto pulido',
+        imageAlt: 'Equipo en una plataforma elevadora trabajando en el exterior de un edificio comercial',
       },
       remodeling: {
         title: 'Remodelaciones',
@@ -136,7 +137,7 @@ export const es: Translations = {
           'Pisos, molduras y acabados',
           'Pintura y detalles finales',
         ],
-        imageAlt: 'Cocina remodelada con isla de mármol, gabinetes blancos y lámparas colgantes',
+        imageAlt: 'Cocina remodelada con gabinetes blancos estilo shaker y encimeras de madera',
       },
       drywall: {
         title: 'Drywall y reparación de paredes',
@@ -164,7 +165,7 @@ export const es: Translations = {
           'Techos y áreas de difícil acceso',
           'Limpieza, lijado y aplicación de primer',
         ],
-        imageAlt: 'Cocina con gabinetes pintados de verde salvia y encimeras de mármol',
+        imageAlt: 'Gabinetes de cocina pintados de blanco con encimeras de granito oscuro',
       },
       renovations: {
         title: 'Renovaciones generales',
@@ -179,7 +180,7 @@ export const es: Translations = {
           'Reparaciones antes de vender o mudarse',
           'Mejoras para propietarios y administradores de propiedades',
         ],
-        imageAlt: 'Cuarto en plena renovación con estructura expuesta y postes de soporte temporales',
+        imageAlt: 'Sala remodelada con paredes grises, chimenea de ladrillo pintada y piso nuevo',
       },
     },
   },
@@ -189,7 +190,7 @@ export const es: Translations = {
     title: '¿Por qué elegir a {company}?',
     intro:
       'Contratar a un contratista significa confiarle su propiedad. Esto es lo que puede esperar al trabajar con nuestro equipo.',
-    imageAlt: 'Pintor suspendido con cuerdas pintando una gran pared blanca',
+    imageAlt: 'Nuestro equipo trabajando en un techo, cambiando el revestimiento junto a una chimenea',
     items: {
       experience: {
         title: 'Más de {years} años de experiencia',
@@ -232,19 +233,17 @@ export const es: Translations = {
       'Pintura, drywall, remodelaciones y construcción',
       'Comunicación desde el estimado hasta la revisión final',
     ],
-    photoLabel: '[FOTO DEL EQUIPO O DE UN PROYECTO]',
     experienceValue: '{years}+',
     experienceLabel: 'Años de experiencia',
-    imageAlt: 'Pintor en una escalera pintando el exterior de una casa blanca',
-    detailAlt: 'Primer plano de un rodillo aplicando pintura blanca en una pared interior',
+    imageAlt: 'Miembro del equipo en una plataforma elevadora trabajando en el exterior de un edificio comercial',
+    detailAlt: 'Equipo trabajando en el hastial de un techo con revestimiento de madera color arena',
     cta: 'Conozca más sobre nosotros',
   },
 
   projects: {
     eyebrow: 'Portafolio',
     title: 'Nuestros trabajos recientes',
-    subtitle: 'Una muestra de los proyectos de pintura, remodelación y construcción que realizamos.',
-    placeholderNote: '[Fotos de muestra — reemplácelas con imágenes de sus proyectos terminados]',
+    subtitle: 'Proyectos de pintura, remodelación y construcción realizados por nuestro equipo en el área DFW.',
     filterLabel: 'Filtrar proyectos por categoría',
     all: 'Todos',
     categories: {
@@ -261,53 +260,53 @@ export const es: Translations = {
     next: 'Proyecto siguiente',
     counter: '{current} de {total}',
     items: {
-      interiorRoom: {
-        title: 'Paredes y molduras interiores',
-        alt: 'Cuarto vacío con paredes grises recién pintadas, molduras blancas y piso de madera',
+      exteriorFrisco: {
+        title: 'Pintura exterior de casa',
+        alt: 'Casa de dos pisos con ladrillo recién pintado de blanco, detalles de piedra y puertas de garaje oscuras en Frisco, Texas',
       },
-      exteriorFarmhouse: {
-        title: 'Pintura exterior de dos pisos',
-        alt: 'Casa blanca estilo granja con techo oscuro y ventanas iluminadas al anochecer',
+      kitchenFrisco: {
+        title: 'Gabinetes, mármol e iluminación de cocina',
+        alt: 'Cocina con gabinetes pintados en blanco y oscuro, una gran isla de mármol y lámparas colgantes doradas',
       },
-      remodelKitchen: {
-        title: 'Actualización de cocina',
-        alt: 'Cocina con gabinetes blancos, fregadero tipo granja y electrodomésticos de acero inoxidable',
+      officeFrisco: {
+        title: 'Gabinetes y pintura de paredes en oficina',
+        alt: 'Oficina con muebles empotrados y paredes pintadas de verde salvia, piso de madera y ventilador de techo',
       },
-      commercialLobby: {
-        title: 'Acabados de recepción comercial',
-        alt: 'Recepción comercial moderna con paneles de madera y mostrador de piedra',
+      garageRoofCelina: {
+        title: 'Reparación de techo de garaje dañado por tornado',
+        alt: 'Equipo reconstruyendo el techo de un garaje con estructura nueva y barrera de humedad después de un tornado',
       },
-      exteriorBrick: {
-        title: 'Exterior y molduras de casa de ladrillo',
-        alt: 'Casa de ladrillo de dos pisos con jardín frontal en un vecindario residencial',
+      kitchenCabinets: {
+        title: 'Pintura de gabinetes de cocina',
+        alt: 'Cocina con gabinetes pintados de blanco, encimeras de granito oscuro y lámparas colgantes',
       },
-      constructionFraming: {
-        title: 'Estructura de casa nueva',
-        alt: 'Casa de dos pisos con estructura de madera en construcción y andamios',
+      sidingRoof: {
+        title: 'Cambio de siding y pintura',
+        alt: 'Tres trabajadores sobre un techo de tejas cambiando el revestimiento junto a una chimenea',
       },
-      interiorLiving: {
-        title: 'Renovación de sala',
-        alt: 'Sala moderna con paredes en tonos neutros, sofá seccional y ventanales',
+      commercialExterior: {
+        title: 'Exterior de edificio comercial',
+        alt: 'Trabajadores en una plataforma elevadora instalando paneles exteriores en un edificio comercial',
       },
-      remodelBath: {
-        title: 'Remodelación de baño',
-        alt: 'Baño remodelado con regadera de vidrio, lavabo doble y piso tipo madera',
+      homeLiving: {
+        title: 'Remodelación de casa: sala',
+        alt: 'Sala remodelada con paredes grises, chimenea de ladrillo pintada, luces empotradas y piso tipo madera',
       },
-      constructionInterior: {
-        title: 'Estructura interior y drywall',
-        alt: 'Espacio interior en construcción con postes metálicos y paneles de drywall nuevos',
+      roofing: {
+        title: 'Trabajo de techo y revestimiento',
+        alt: 'Dos trabajadores en un techo con soportes de madera temporales, trabajando en un hastial con revestimiento color arena',
       },
-      exteriorSiding: {
-        title: 'Pintura de revestimiento y porche',
-        alt: 'Casa de dos pisos con revestimiento gris, molduras blancas y porche techado',
+      balconyFrisco: {
+        title: 'Piso de balcón',
+        alt: 'Balcón con piso nuevo de losetas de piedra y barandal de metal negro',
       },
-      commercialOffice: {
-        title: 'Renovación de oficina',
-        alt: 'Oficina abierta con filas de escritorios, sillas y luces empotradas en el techo',
+      homeKitchen: {
+        title: 'Remodelación de casa: cocina',
+        alt: 'Cocina remodelada con gabinetes blancos estilo shaker, encimeras de madera y electrodomésticos de acero inoxidable',
       },
-      interiorOpen: {
-        title: 'Pintura de área abierta',
-        alt: 'Sala con paredes blancas, techo de madera y ventanales de piso a techo',
+      closet: {
+        title: 'Remodelación de clóset',
+        alt: 'Clóset vestidor con repisas blancas, cajones, tubos para colgar ropa y piso de madera oscura',
       },
     },
   },
@@ -371,6 +370,7 @@ export const es: Translations = {
       'Compártanos algunos detalles de su proyecto y nos pondremos en contacto para hablar de los siguientes pasos y programar su estimado gratis.',
     infoTitle: 'Información de contacto',
     phone: 'Teléfono',
+    whatsapp: 'WhatsApp y mensajes de texto',
     email: 'Correo electrónico',
     address: 'Dirección',
     hours: 'Horario de atención',

@@ -28,14 +28,16 @@ export interface Service {
   image: string;
   /** Project type pre-selected in the estimate form when this service is chosen. */
   projectType: ProjectType;
+  /** CSS object-position for the card crop (useful for tall photos). */
+  position?: string;
 }
 
 /** Display order of the service cards. Text lives in `src/i18n`. */
 export const services: readonly Service[] = [
   { id: 'interior', icon: PaintRoller, image: images.serviceInterior, projectType: 'interior' },
   { id: 'exterior', icon: House, image: images.serviceExterior, projectType: 'exterior' },
-  { id: 'residential', icon: Hammer, image: images.serviceResidential, projectType: 'construction' },
-  { id: 'commercial', icon: Building2, image: images.serviceCommercial, projectType: 'commercial' },
+  { id: 'residential', icon: Hammer, image: images.serviceResidential, projectType: 'construction', position: 'center 38%' },
+  { id: 'commercial', icon: Building2, image: images.serviceCommercial, projectType: 'commercial', position: 'center 28%' },
   { id: 'remodeling', icon: PencilRuler, image: images.serviceRemodeling, projectType: 'remodeling' },
   { id: 'drywall', icon: BrickWall, image: images.serviceDrywall, projectType: 'drywall' },
   { id: 'cabinets', icon: Brush, image: images.serviceCabinets, projectType: 'cabinets' },

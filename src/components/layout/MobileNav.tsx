@@ -43,21 +43,21 @@ export function MobileNav({ open, onClose, active }: MobileNavProps) {
     <div
       id="mobile-menu"
       ref={panelRef}
-      className="fixed inset-x-0 top-18 bottom-0 animate-slide-down overflow-y-auto border-t border-line bg-paper xl:hidden"
+      className="fixed inset-x-0 top-18 bottom-0 animate-slide-down overflow-y-auto border-t border-white/10 bg-night text-white xl:hidden"
     >
       <nav aria-label={t.nav.label} className="container-site flex min-h-full flex-col py-6">
-        <ul className="divide-y divide-line">
+        <ul className="divide-y divide-white/10">
           {navItems.map((item, index) => (
             <li key={item.id} className="animate-rise-in" style={{ animationDelay: `${60 + index * 35}ms` }}>
               <a
                 href={`#${item.id}`}
                 onClick={() => onClose()}
                 aria-current={active === item.id ? 'location' : undefined}
-                className="group flex min-h-14 items-center justify-between py-3 font-display text-2xl font-semibold text-ink transition-colors hover:text-brick-700 aria-[current=location]:text-brick-600"
+                className="group flex min-h-14 items-center justify-between py-3 font-display text-2xl font-semibold text-white transition-colors hover:text-brick-300 aria-[current=location]:text-brick-300"
               >
                 {t.nav[item.labelKey]}
                 <ArrowRight
-                  className="size-5 text-ink/30 transition-transform group-hover:translate-x-1 group-hover:text-brick-600"
+                  className="size-5 text-white/30 transition-transform group-hover:translate-x-1 group-hover:text-brick-300"
                   aria-hidden="true"
                 />
               </a>
@@ -70,17 +70,17 @@ export function MobileNav({ open, onClose, active }: MobileNavProps) {
             {t.common.getEstimate}
           </ButtonLink>
           <div className="flex items-center justify-between gap-4">
-            <span className="text-sm font-semibold tracking-[0.14em] text-muted uppercase">{t.language.label}</span>
-            <LanguageSwitcher size="lg" />
+            <span className="text-sm font-semibold tracking-[0.14em] text-white/60 uppercase">{t.language.label}</span>
+            <LanguageSwitcher tone="light" size="lg" />
           </div>
         </div>
 
         <div className="mt-auto pt-10">
-          <div className="rounded-lg border border-line bg-white p-5">
-            <ContactDetails compact />
+          <div className="rounded-lg border border-white/10 bg-white/5 p-5">
+            <ContactDetails tone="dark" compact />
           </div>
-          <p className="mt-5 flex items-center gap-2 text-sm text-muted">
-            <MapPin className="size-4 text-brick-600" aria-hidden="true" />
+          <p className="mt-5 flex items-center gap-2 text-sm text-white/60">
+            <MapPin className="size-4 text-brick-300" aria-hidden="true" />
             {t.contact.serviceArea}
           </p>
         </div>

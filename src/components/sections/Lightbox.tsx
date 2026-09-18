@@ -2,7 +2,7 @@ import { ChevronLeft, ChevronRight, MapPin, X } from 'lucide-react';
 import { useEffect, useRef, type KeyboardEvent, type PointerEvent } from 'react';
 import type { Project } from '../../data/projects';
 import { useLanguage } from '../../i18n/LanguageContext';
-import { photoSrcSet, photoUrl } from '../../lib/photo';
+import { photoSize, photoSrcSet, photoUrl } from '../../lib/photo';
 import { Modal } from '../ui/Modal';
 
 interface LightboxProps {
@@ -13,7 +13,7 @@ interface LightboxProps {
 }
 
 const SWIPE_THRESHOLD = 50;
-/** Photos are shown at 3:2 so space is reserved before they finish loading. */
+/** Stock photos are cropped to 3:2 so space is reserved before they load; the company's photos keep their own shape. */
 const LIGHTBOX_RATIO = 3 / 2;
 
 export function Lightbox({ projects, index, onChange, onClose }: LightboxProps) {
@@ -89,8 +89,8 @@ export function Lightbox({ projects, index, onChange, onClose }: LightboxProps) 
                 src={photoUrl(project.image, 1500, LIGHTBOX_RATIO)}
                 srcSet={photoSrcSet(project.image, [960, 1500, 2100], LIGHTBOX_RATIO)}
                 sizes="(min-width: 1280px) 72rem, 100vw"
-                width={1500}
-                height={1000}
+                width={photoSize(project.image)?.width ?? 1500}
+                height={photoSize(project.image)?.height ?? 1000}
                 alt={copy.alt}
                 className="max-h-[calc(100dvh-13rem)] w-auto max-w-full rounded-md object-contain shadow-2xl select-none"
                 draggable={false}
@@ -98,10 +98,12 @@ export function Lightbox({ projects, index, onChange, onClose }: LightboxProps) 
               <figcaption className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-center">
                 <span className="font-display text-lg font-bold sm:text-xl">{copy.title}</span>
                 <span className="text-sm text-white/65">{t.projects.categories[project.category]}</span>
-                <span className="flex items-center gap-1 text-sm text-white/65">
-                  <MapPin className="size-3.5" aria-hidden="true" />
-                  {project.location}
-                </span>
+                {project.location && (
+                  <span className="flex items-center gap-1 text-sm text-white/65">
+                    <MapPin className="size-3.5" aria-hidden="true" />
+                    {project.location}
+                  </span>
+                )}
               </figcaption>
             </figure>
           </div>

@@ -6,8 +6,8 @@ import { useLanguage } from '../../i18n/LanguageContext';
  * relative positions are recognizable to locals.
  */
 
-const BOUNDS = { west: -96.95, east: -96.58, north: 33.23, south: 32.92 };
-const VIEW = { width: 420, height: 380, pad: 22 };
+const BOUNDS = { west: -96.95, east: -96.58, north: 33.36, south: 32.92 };
+const VIEW = { width: 420, height: 510, pad: 22 };
 
 function project(lat: number, lng: number): [number, number] {
   const x = VIEW.pad + ((lng - BOUNDS.west) / (BOUNDS.east - BOUNDS.west)) * (VIEW.width - VIEW.pad * 2 - 20);
@@ -19,6 +19,7 @@ const cities = [
   { name: 'Plano', lat: 33.0198, lng: -96.6989, hub: true },
   { name: 'Frisco', lat: 33.1507, lng: -96.8236 },
   { name: 'McKinney', lat: 33.1972, lng: -96.6398 },
+  { name: 'Celina', lat: 33.3246, lng: -96.7845 },
   { name: 'Allen', lat: 33.1032, lng: -96.6706 },
   { name: 'Richardson', lat: 32.9483, lng: -96.7299 },
   { name: 'Carrollton', lat: 32.9756, lng: -96.89 },
@@ -34,7 +35,8 @@ const roads: [number, number][][] = [
     [33.0198, -96.7],
     [33.1032, -96.668],
     [33.1972, -96.636],
-    [33.25, -96.62],
+    [33.3, -96.61],
+    [33.36, -96.6],
   ],
   // Dallas North Tollway
   [
@@ -42,7 +44,8 @@ const roads: [number, number][][] = [
     [33.0, -96.826],
     [33.1, -96.824],
     [33.2, -96.826],
-    [33.25, -96.83],
+    [33.3, -96.83],
+    [33.36, -96.83],
   ],
   // President George Bush Turnpike
   [
@@ -89,8 +92,9 @@ export function ServiceAreaMap() {
         <rect width={VIEW.width} height={VIEW.height} rx="10" fill="#1a1917" />
         <rect width={VIEW.width} height={VIEW.height} fill="url(#map-grid)" />
 
-        {/* Lake Lewisville (simplified) */}
+        {/* Lake Lewisville (simplified; drawn relative to latitude 33.23) */}
         <path
+          transform={`translate(0 ${project(33.23, BOUNDS.west)[1] - VIEW.pad})`}
           d="M0 118c14-8 30-4 40 8s6 30 16 40-2 26-18 30-26 14-38 12z"
           fill="rgb(120 160 190 / 0.12)"
           stroke="rgb(120 160 190 / 0.18)"
@@ -110,7 +114,7 @@ export function ServiceAreaMap() {
 
         {/* Coverage rings around Plano */}
         <circle cx={hub[0]} cy={hub[1]} r="150" fill="url(#map-glow)" />
-        {[70, 140, 210].map((radius) => (
+        {[80, 160, 240, 320].map((radius) => (
           <circle
             key={radius}
             cx={hub[0]}

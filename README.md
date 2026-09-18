@@ -1,10 +1,10 @@
-# Construction & Painting Company Website — Plano, TX
+# Giron Painting — Website
 
-Bilingual (English / Español) marketing website for a construction, remodeling, and painting company serving Plano, Texas and the surrounding Dallas–Fort Worth area.
+Bilingual (English / Español) website for Giron Painting, a construction, remodeling, and painting company in Plano, Texas serving the Dallas–Fort Worth area.
 
 Built with **React 19, TypeScript, Vite, Tailwind CSS 4, and Lucide icons**. No backend is required; the site deploys to GitHub Pages automatically.
 
-> **Placeholders:** the company's real details haven't been added yet. Anything in `[SQUARE BRACKETS]` — `[COMPANY NAME]`, `[PHONE NUMBER]`, `[EMAIL ADDRESS]`, `[BUSINESS ADDRESS]`, testimonials, and so on — must be replaced before launch. No licenses, ratings, reviews, years in business, or statistics have been invented.
+> **Still to add:** customer testimonials (`src/data/testimonials.ts`), the company story (`about.storyPlaceholder` in `src/i18n`), and the legal page details — anything still in `[SQUARE BRACKETS]`. No licenses, ratings, or reviews have been invented.
 
 ---
 
@@ -47,19 +47,17 @@ Every user-facing string lives in `src/i18n/en.ts` and `src/i18n/es.ts`. The Spa
 
 Also replace the bracketed placeholders for the company story (`about.storyPlaceholder`) and on the Privacy Policy and Terms of Service pages (`legal`). Have the legal pages reviewed by a qualified professional.
 
-### 3. Photos
+### 3. Photos and logo
 
-The site currently uses royalty-free placeholder photos from [Unsplash](https://unsplash.com/license), served from Unsplash's CDN at the right size for each screen. To use the company's own photos:
+The company's photos live in `public/images/`, each saved as WebP in several widths (`<name>-480.webp`, `<name>-960.webp`, …) so phones download smaller files. `src/data/photoManifest.ts` lists the available sizes, and `src/data/images.ts` says where each photo is used (`'/images/<name>'`). One service card (Drywall) still uses a royalty-free [Unsplash](https://unsplash.com/license) photo until a real one is available.
 
-1. Put the files in `public/images/` (JPEG or WebP, around 2000px wide for large images).
-2. In `src/data/images.ts`, change the value to the path — for example `hero: '/images/hero.jpg'`.
-3. Update the matching alt text in `src/i18n/en.ts` and `src/i18n/es.ts`.
+To add a photo, export it at around 1600px wide in those sizes, add it to `photoManifest.ts`, reference it in `images.ts`, and write alt text in `src/i18n/en.ts` and `src/i18n/es.ts`. `public/og-image.jpg` (1200×630) is the preview image shown when the site is shared.
 
-Remove the `[TEAM OR PROJECT PHOTO]` label in `src/components/sections/About.tsx` and the sample-photo note in the gallery (`projects.placeholderNote`) once real photos are in place.
+The logo is in `public/brand/` (SVG and PNG, white and black versions, plus the icon on its own). The site draws it from `src/components/ui/logoGeometry.ts`; the favicon is `public/favicon.svg`.
 
 ### 4. Gallery and testimonials
 
-- **Projects:** each entry in `src/data/projects.ts` has a category, image, and location (`[CITY], TX` for now). Titles and alt text are in the translation files under `projects.items`.
+- **Projects:** each entry in `src/data/projects.ts` has a category, image, optional location, and optional crop position. Titles and alt text are in the translation files under `projects.items`. With two featured projects, keep the total a multiple of 3 (12, 15, 18…) so the grid has no gaps.
 - **Testimonials:** replace the entries in `src/data/testimonials.ts` with real reviews, published with the customer's permission. Add or remove entries freely; the section hides itself if the list is empty.
 
 ### 5. Estimate form

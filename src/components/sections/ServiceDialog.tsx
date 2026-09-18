@@ -43,6 +43,7 @@ export function ServiceDialog({ serviceId, onClose }: ServiceDialogProps) {
               alt={copy.imageAlt}
               widths={[640, 960]}
               sizes="(min-width: 768px) 24rem, 100vw"
+              position={service.position}
               className="size-full md:absolute md:inset-0"
             />
           </div>

@@ -11,46 +11,47 @@ export const projectCategories = [
 export type ProjectCategory = (typeof projectCategories)[number];
 
 export type ProjectId =
-  | 'interiorRoom'
-  | 'exteriorFarmhouse'
-  | 'remodelKitchen'
-  | 'commercialLobby'
-  | 'exteriorBrick'
-  | 'constructionFraming'
-  | 'interiorLiving'
-  | 'remodelBath'
-  | 'constructionInterior'
-  | 'exteriorSiding'
-  | 'commercialOffice'
-  | 'interiorOpen';
+  | 'exteriorFrisco'
+  | 'kitchenFrisco'
+  | 'officeFrisco'
+  | 'garageRoofCelina'
+  | 'kitchenCabinets'
+  | 'sidingRoof'
+  | 'homeKitchen'
+  | 'homeLiving'
+  | 'roofing'
+  | 'balconyFrisco'
+  | 'closet'
+  | 'commercialExterior';
 
 export interface Project {
   id: ProjectId;
   category: ProjectCategory;
   image: string;
-  /** Where the project is located, e.g. "Plano, TX". */
-  location: string;
+  /** Where the project is located, e.g. "Frisco, TX". Omit if unknown. */
+  location?: string;
   /** Shown larger in the "All" view on wide screens. */
   featured?: boolean;
+  /** CSS object-position for the thumbnail crop (useful for tall photos). */
+  position?: string;
 }
 
 /**
- * Gallery entries. Titles and alt text live in `src/i18n`.
+ * Gallery entries — the company's completed work. Titles and alt text live in `src/i18n`.
  *
- * The photos are placeholders — swap in the company's completed projects and
- * set the real `location` for each one.
+ * With two featured projects, 12 entries fill the three-column grid exactly.
  */
 export const projects: readonly Project[] = [
-  { id: 'exteriorFarmhouse', category: 'exterior', image: images.projectExteriorFarmhouse, location: '[CITY], TX', featured: true },
-  { id: 'interiorRoom', category: 'interior', image: images.projectInteriorRoom, location: '[CITY], TX' },
-  { id: 'remodelKitchen', category: 'remodeling', image: images.projectRemodelKitchen, location: '[CITY], TX' },
-  { id: 'commercialLobby', category: 'commercial', image: images.projectCommercialLobby, location: '[CITY], TX' },
-  { id: 'exteriorBrick', category: 'exterior', image: images.projectExteriorBrick, location: '[CITY], TX' },
-  { id: 'constructionFraming', category: 'construction', image: images.projectConstructionFraming, location: '[CITY], TX' },
-  { id: 'interiorLiving', category: 'interior', image: images.projectInteriorLiving, location: '[CITY], TX' },
-  { id: 'remodelBath', category: 'remodeling', image: images.projectRemodelBath, location: '[CITY], TX', featured: true },
-  { id: 'constructionInterior', category: 'construction', image: images.projectConstructionInterior, location: '[CITY], TX' },
-  { id: 'exteriorSiding', category: 'exterior', image: images.projectExteriorSiding, location: '[CITY], TX' },
-  { id: 'commercialOffice', category: 'commercial', image: images.projectCommercialOffice, location: '[CITY], TX' },
-  { id: 'interiorOpen', category: 'interior', image: images.projectInteriorOpen, location: '[CITY], TX' },
+  { id: 'exteriorFrisco', category: 'exterior', image: images.projectExteriorFrisco, location: 'Frisco, TX', featured: true },
+  { id: 'kitchenFrisco', category: 'remodeling', image: images.projectKitchenFrisco, location: 'Frisco, TX' },
+  { id: 'officeFrisco', category: 'interior', image: images.projectOfficeFrisco, location: 'Frisco, TX' },
+  { id: 'garageRoofCelina', category: 'construction', image: images.projectGarageRoof, location: 'Celina, TX', position: 'center 35%' },
+  { id: 'kitchenCabinets', category: 'remodeling', image: images.projectKitchenCabinets },
+  { id: 'sidingRoof', category: 'exterior', image: images.projectSidingRoof, position: 'center 18%' },
+  { id: 'commercialExterior', category: 'commercial', image: images.projectCommercial, position: 'center 30%' },
+  { id: 'homeLiving', category: 'remodeling', image: images.projectHomeLiving, featured: true },
+  { id: 'roofing', category: 'construction', image: images.projectRoofing, position: 'center 22%' },
+  { id: 'balconyFrisco', category: 'construction', image: images.projectBalcony, location: 'Frisco, TX', position: 'center 60%' },
+  { id: 'homeKitchen', category: 'remodeling', image: images.projectHomeKitchen },
+  { id: 'closet', category: 'remodeling', image: images.projectCloset, position: 'center 40%' },
 ];
