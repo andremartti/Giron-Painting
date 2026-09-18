@@ -11,30 +11,35 @@
  */
 export const company = {
   /** Public business name, shown in the navbar, footer, titles, and schema. */
-  name: '[COMPANY NAME]',
+  name: 'Giron Painting',
+
+  /** Years of experience, shown as "30+". Used in the hero, About, Why Choose Us, and meta description. */
+  experienceYears: 30,
 
   phone: {
     /** How the number is displayed, e.g. "(972) 555-0123". */
-    display: '[PHONE NUMBER]',
+    display: '(214) 417-0701',
     /** Dialable number in E.164 format, e.g. "+19725550123". Leave empty until known. */
-    dial: '',
+    dial: '+12144170701',
   },
 
-  email: '[EMAIL ADDRESS]',
+  /** Leave empty to hide the email everywhere until the address exists. */
+  email: '',
 
   address: {
-    /** Street address shown on the site, e.g. "1234 Example St, Suite 100". */
-    street: '[BUSINESS ADDRESS]',
+    /** Street address, e.g. "1234 Example St, Suite 100". Leave empty to show only the city. */
+    street: '',
     city: 'Plano',
     region: 'TX',
-    postalCode: '[ZIP CODE]',
+    /** Leave empty to omit. */
+    postalCode: '',
     countryCode: 'US',
   },
 
   /** Business hours, one line per language. */
   hours: {
-    en: '[BUSINESS HOURS]',
-    es: '[HORARIO DE ATENCIÓN]',
+    en: '7:00 AM – 8:00 PM',
+    es: '7:00 a. m. – 8:00 p. m.',
   },
 
   /**
@@ -81,8 +86,19 @@ export function emailHref(): string | undefined {
   return isPlaceholder(company.email) ? undefined : `mailto:${company.email}`;
 }
 
-/** Street, city, region, and ZIP on a single line. */
+/** Whether an email (real or bracketed placeholder) should be shown. Empty hides it. */
+export function hasEmail(): boolean {
+  return company.email.trim() !== '';
+}
+
+/** Street (if any), city, region, and ZIP (if any) on a single line. */
 export function fullAddress(): string {
   const { street, city, region, postalCode } = company.address;
-  return `${street}, ${city}, ${region} ${postalCode}`;
+  const locality = [`${city}, ${region}`, postalCode].filter(Boolean).join(' ');
+  return [street, locality].filter(Boolean).join(', ');
+}
+
+/** Phone and email (when set) joined for sentences, e.g. "(214) 417-0701 or name@example.com". */
+export function contactLine(or: string): string {
+  return [company.phone.display, hasEmail() ? company.email : ''].filter(Boolean).join(` ${or} `);
 }

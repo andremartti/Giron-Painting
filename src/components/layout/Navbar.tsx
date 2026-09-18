@@ -1,5 +1,6 @@
-import { Menu, X } from 'lucide-react';
+import { Menu, Phone, X } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { company, phoneHref } from '../../config/company';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { useScrolled } from '../../hooks/useScrolled';
 import { useLanguage } from '../../i18n/LanguageContext';
@@ -22,6 +23,7 @@ export function Navbar({ alwaysSolid = false }: NavbarProps) {
   const active = useActiveSection(navSectionIds, !alwaysSolid);
 
   const solid = alwaysSolid || scrolled || menuOpen;
+  const callHref = phoneHref();
 
   // Close the mobile menu when the viewport grows to desktop width.
   useEffect(() => {
@@ -81,6 +83,16 @@ export function Navbar({ alwaysSolid = false }: NavbarProps) {
             <div className="hidden md:block">
               <ButtonLink href="#contact">{t.common.getEstimate}</ButtonLink>
             </div>
+            {/* Tap-to-call on phones, where the estimate button is hidden. */}
+            {callHref && (
+              <a
+                href={callHref}
+                aria-label={f(t.common.call, { phone: company.phone.display })}
+                className="flex size-11 items-center justify-center rounded-md bg-brick-600 text-white shadow-[0_8px_18px_-10px_rgb(165_58_36/0.9)] transition-colors hover:bg-brick-700 md:hidden"
+              >
+                <Phone className="size-5" aria-hidden="true" />
+              </a>
+            )}
             <button
               ref={menuButtonRef}
               type="button"

@@ -1,14 +1,14 @@
 /**
  * English copy — the default language and the reference shape for every other
  * translation. Tokens in {curly braces} are filled in at render time:
- * {company} → company name, {year} → current year, and a few section-specific
- * values noted next to each string.
+ * {company} → company name, {years} → years of experience, {year} → current
+ * year, and a few section-specific values noted next to each string.
  */
 export const en = {
   meta: {
     title: 'Construction & Painting Company in Plano, TX | {company}',
     description:
-      '{company} provides residential and commercial construction, remodeling, and interior and exterior painting in Plano, TX and nearby DFW communities. Request a free estimate.',
+      '{company}: {years}+ years of experience in construction, remodeling, and interior & exterior painting for homes and businesses in Plano, TX and the DFW area. Free estimates.',
     privacyTitle: 'Privacy Policy | {company}',
     termsTitle: 'Terms of Service | {company}',
   },
@@ -20,6 +20,8 @@ export const en = {
     /** {network} → social network name */
     socialNotSet: '{network} — link coming soon',
     newTab: '(opens in a new tab)',
+    /** {phone} → phone number */
+    call: 'Call {phone}',
   },
 
   language: {
@@ -52,9 +54,9 @@ export const en = {
     imageAlt: 'Newly finished two-story stone home with a landscaped front yard at sunset',
     highlightsLabel: 'What we do',
     highlights: [
+      '{years}+ Years of Experience',
       'Interior & Exterior Painting',
-      'Remodeling & Renovations',
-      'Drywall & Wall Repair',
+      'Remodeling & Drywall',
       'Residential & Commercial',
     ],
   },
@@ -191,6 +193,10 @@ export const en = {
       "Hiring a contractor means trusting someone with your property. Here's what you can expect when you work with our team.",
     imageAlt: 'Painter on a rope access line painting a large white wall',
     items: {
+      experience: {
+        title: '{years}+ Years of Experience',
+        text: 'Decades of hands-on work in painting, remodeling, and construction go into every project.',
+      },
       quality: {
         title: 'Quality Craftsmanship',
         text: 'We focus on careful preparation, precise application, and clean finishing.',
@@ -218,7 +224,7 @@ export const en = {
     eyebrow: 'About Us',
     title: 'Built Around Quality. Finished With Care.',
     paragraphs: [
-      '{company} provides construction, remodeling, and painting services for residential and commercial customers in Plano, Texas and the surrounding Dallas–Fort Worth area.',
+      'With more than {years} years of experience, {company} provides construction, remodeling, and painting services for residential and commercial customers in Plano, Texas and the surrounding Dallas–Fort Worth area.',
       "Whether you're refreshing a single room, updating the outside of your home, or planning improvements to a commercial space, our approach stays the same: careful preparation, quality workmanship, and a clean, professional finish.",
     ],
     storyPlaceholder:
@@ -229,6 +235,8 @@ export const en = {
       'Communication from estimate to walkthrough',
     ],
     photoLabel: '[TEAM OR PROJECT PHOTO]',
+    experienceValue: '{years}+',
+    experienceLabel: 'Years of experience',
     imageAlt: 'Painter standing on a ladder while painting the exterior of a white house',
     detailAlt: 'Close-up of a paint roller applying fresh white paint to an interior wall',
     cta: 'Learn More About Us',
@@ -452,6 +460,8 @@ export const en = {
 
   legal: {
     backHome: 'Back to Home',
+    /** Joins phone and email in {contact}. */
+    or: 'or',
     updated: 'Last updated: [DATE]',
     templateNotice:
       '[TEMPLATE — This page is a starting point only. Have it reviewed and completed by a qualified legal professional before publishing.]',
@@ -478,7 +488,7 @@ export const en = {
         },
         {
           heading: 'Contact Us',
-          body: 'If you have questions about this policy, contact {company} at {email} or {phone}.',
+          body: 'If you have questions about this policy, contact {company} at {contact}.',
         },
       ],
     },
@@ -504,7 +514,7 @@ export const en = {
         },
         {
           heading: 'Contact Us',
-          body: 'Questions about these terms can be sent to {company} at {email} or {phone}.',
+          body: 'Questions about these terms can be sent to {company} at {contact}.',
         },
       ],
     },

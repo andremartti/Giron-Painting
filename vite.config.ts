@@ -1,12 +1,13 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig, loadEnv, type HtmlTagDescriptor, type Plugin } from 'vite';
-import { company, fullAddress } from './src/config/company.ts';
+import { company, contactLine, fullAddress, hasEmail } from './src/config/company.ts';
 import { images } from './src/data/images.ts';
 import { en } from './src/i18n/en.ts';
 import { HERO_IMAGE_QUALITY, HERO_IMAGE_WIDTHS, photoSrcSet, photoUrl } from './src/lib/photo.ts';
 
-const fillCompany = (text: string) => text.replaceAll('{company}', company.name);
+const fillCompany = (text: string) =>
+  text.replaceAll('{company}', company.name).replaceAll('{years}', String(company.experienceYears));
 
 /**
  * Generates SEO tags, LocalBusiness structured data, robots.txt, and
@@ -27,13 +28,13 @@ function seo(siteUrl: string, basePath: string): Plugin {
     ...(pageUrl && { url: pageUrl, '@id': `${pageUrl}#business` }),
     image: ogImage,
     telephone: company.phone.dial || company.phone.display,
-    email: company.email,
+    ...(hasEmail() && { email: company.email }),
     address: {
       '@type': 'PostalAddress',
-      streetAddress: company.address.street,
+      ...(company.address.street ? { streetAddress: company.address.street } : {}),
       addressLocality: company.address.city,
       addressRegion: company.address.region,
-      postalCode: company.address.postalCode,
+      ...(company.address.postalCode ? { postalCode: company.address.postalCode } : {}),
       addressCountry: company.address.countryCode,
     },
     areaServed: company.serviceAreas.map((city) => ({
@@ -111,7 +112,7 @@ function seo(siteUrl: string, basePath: string): Plugin {
           .replace('%SITE_TITLE%', title)
           .replace('%NOSCRIPT_COMPANY%', company.name)
           .replace('%NOSCRIPT_DESCRIPTION%', fillCompany(en.footer.description))
-          .replace('%NOSCRIPT_CONTACT%', `${company.phone.display} · ${company.email} · ${fullAddress()}`),
+          .replace('%NOSCRIPT_CONTACT%', `${contactLine('·')} · ${fullAddress()}`),
         tags,
       };
     },

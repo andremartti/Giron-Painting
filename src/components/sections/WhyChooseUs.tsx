@@ -1,4 +1,4 @@
-import { BadgeCheck, Building, CalendarCheck, MapPinned, ScanSearch, type LucideIcon } from 'lucide-react';
+import { Award, BadgeCheck, Building, CalendarCheck, MapPinned, ScanSearch, type LucideIcon } from 'lucide-react';
 import { images } from '../../data/images';
 import type { Translations } from '../../i18n/en';
 import { useLanguage } from '../../i18n/LanguageContext';
@@ -7,6 +7,7 @@ import { Reveal } from '../ui/Reveal';
 import { SectionHeader } from '../ui/SectionHeader';
 
 const reasons: { key: keyof Translations['whyUs']['items']; icon: LucideIcon }[] = [
+  { key: 'experience', icon: Award },
   { key: 'quality', icon: BadgeCheck },
   { key: 'detail', icon: ScanSearch },
   { key: 'reliable', icon: CalendarCheck },
@@ -50,7 +51,8 @@ export function WhyChooseUs() {
         <ol className="grid gap-px self-start overflow-hidden rounded-lg bg-white/10 sm:grid-cols-2 lg:col-span-7">
           {reasons.map(({ key, icon: Icon }, index) => {
             const item = t.whyUs.items[key];
-            const wide = index === reasons.length - 1;
+            // With an odd number of items, the last one spans both columns.
+            const wide = reasons.length % 2 === 1 && index === reasons.length - 1;
             return (
               <Reveal
                 as="li"
@@ -69,7 +71,7 @@ export function WhyChooseUs() {
                     {String(index + 1).padStart(2, '0')}
                   </span>
                 </div>
-                <h3 className="mt-6 text-xl font-bold tracking-[-0.01em]">{item.title}</h3>
+                <h3 className="mt-6 text-xl font-bold tracking-[-0.01em]">{f(item.title)}</h3>
                 <p className="mt-2.5 leading-relaxed text-white/70">{item.text}</p>
               </Reveal>
             );

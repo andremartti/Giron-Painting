@@ -24,7 +24,7 @@ export function Logo({ tone = 'dark', className = '' }: LogoProps) {
       </svg>
       <span className="flex min-w-0 flex-col leading-none">
         <span
-          className={`truncate font-display text-[0.95rem] font-bold tracking-[0.04em] sm:text-base ${light ? 'text-white' : 'text-ink'}`}
+          className={`truncate font-display text-[0.95rem] font-extrabold tracking-[0.06em] uppercase sm:text-base ${light ? 'text-white' : 'text-ink'}`}
         >
           {company.name}
         </span>

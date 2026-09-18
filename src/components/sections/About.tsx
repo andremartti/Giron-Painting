@@ -22,10 +22,18 @@ export function About() {
               className="aspect-[4/5] w-full"
             />
             {/* Placeholder marker — remove once a real team or project photo is used. */}
-            <span className="absolute top-4 left-4 rounded bg-night/80 px-2.5 py-1.5 font-mono text-[0.6875rem] tracking-wide text-white backdrop-blur-sm">
+            <span className="absolute bottom-4 left-4 max-w-[45%] rounded bg-night/80 px-2.5 py-1.5 font-mono text-[0.6875rem] tracking-wide text-white backdrop-blur-sm">
               {t.about.photoLabel}
             </span>
           </div>
+          <p className="absolute top-6 right-0 flex items-center gap-3 rounded-md bg-brick-600 px-4 py-3 text-white shadow-lift sm:top-10 sm:px-5 sm:py-4">
+            <span className="font-display text-3xl leading-none font-extrabold sm:text-4xl">
+              {f(t.about.experienceValue)}
+            </span>
+            <span className="max-w-24 text-xs leading-tight font-semibold tracking-[0.08em] uppercase sm:text-[0.8125rem]">
+              {t.about.experienceLabel}
+            </span>
+          </p>
           <div className="absolute right-0 bottom-0 w-[46%] overflow-hidden rounded-lg border-[6px] border-paper shadow-lift">
             <Photo
               src={images.aboutDetail}

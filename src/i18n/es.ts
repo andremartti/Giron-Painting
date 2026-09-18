@@ -8,7 +8,7 @@ export const es: Translations = {
   meta: {
     title: 'Empresa de construcción y pintura en Plano, TX | {company}',
     description:
-      '{company} ofrece construcción residencial y comercial, remodelaciones y pintura interior y exterior en Plano, TX y comunidades cercanas del área DFW. Pida su estimado gratis.',
+      '{company}: más de {years} años de experiencia en construcción, remodelación y pintura interior y exterior para casas y negocios en Plano, TX y el área DFW. Estimados gratis.',
     privacyTitle: 'Política de privacidad | {company}',
     termsTitle: 'Términos de servicio | {company}',
   },
@@ -19,6 +19,7 @@ export const es: Translations = {
     close: 'Cerrar',
     socialNotSet: '{network}: enlace disponible próximamente',
     newTab: '(se abre en una pestaña nueva)',
+    call: 'Llamar al {phone}',
   },
 
   language: {
@@ -51,9 +52,9 @@ export const es: Translations = {
     imageAlt: 'Casa de piedra de dos pisos recién terminada, con jardín frontal, al atardecer',
     highlightsLabel: 'Lo que hacemos',
     highlights: [
+      'Más de {years} años de experiencia',
       'Pintura interior y exterior',
-      'Remodelaciones y renovaciones',
-      'Drywall y reparación de paredes',
+      'Remodelaciones y drywall',
       'Residencial y comercial',
     ],
   },
@@ -190,6 +191,10 @@ export const es: Translations = {
       'Contratar a un contratista significa confiarle su propiedad. Esto es lo que puede esperar al trabajar con nuestro equipo.',
     imageAlt: 'Pintor suspendido con cuerdas pintando una gran pared blanca',
     items: {
+      experience: {
+        title: 'Más de {years} años de experiencia',
+        text: 'Décadas de trabajo en pintura, remodelación y construcción respaldan cada proyecto.',
+      },
       quality: {
         title: 'Trabajo de calidad',
         text: 'Nos enfocamos en una preparación cuidadosa, una aplicación precisa y un acabado limpio.',
@@ -217,7 +222,7 @@ export const es: Translations = {
     eyebrow: 'Nosotros',
     title: 'Construido con calidad. Terminado con esmero.',
     paragraphs: [
-      '{company} ofrece servicios de construcción, remodelación y pintura para clientes residenciales y comerciales en Plano, Texas y el área de Dallas–Fort Worth.',
+      'Con más de {years} años de experiencia, {company} ofrece servicios de construcción, remodelación y pintura para clientes residenciales y comerciales en Plano, Texas y el área de Dallas–Fort Worth.',
       'Ya sea que quiera renovar un solo cuarto, actualizar el exterior de su casa o hacer mejoras en un espacio comercial, nuestra forma de trabajar es la misma: preparación cuidadosa, mano de obra de calidad y un acabado limpio y profesional.',
     ],
     storyPlaceholder:
@@ -228,6 +233,8 @@ export const es: Translations = {
       'Comunicación desde el estimado hasta la revisión final',
     ],
     photoLabel: '[FOTO DEL EQUIPO O DE UN PROYECTO]',
+    experienceValue: '{years}+',
+    experienceLabel: 'Años de experiencia',
     imageAlt: 'Pintor en una escalera pintando el exterior de una casa blanca',
     detailAlt: 'Primer plano de un rodillo aplicando pintura blanca en una pared interior',
     cta: 'Conozca más sobre nosotros',
@@ -447,6 +454,7 @@ export const es: Translations = {
 
   legal: {
     backHome: 'Volver al inicio',
+    or: 'o',
     updated: 'Última actualización: [FECHA]',
     templateNotice:
       '[PLANTILLA — Esta página es solo un punto de partida. Pida a un profesional legal que la revise y complete antes de publicarla.]',
@@ -473,7 +481,7 @@ export const es: Translations = {
         },
         {
           heading: 'Contáctenos',
-          body: 'Si tiene preguntas sobre esta política, comuníquese con {company} al {email} o al {phone}.',
+          body: 'Si tiene preguntas sobre esta política, comuníquese con {company}: {contact}.',
         },
       ],
     },
@@ -499,7 +507,7 @@ export const es: Translations = {
         },
         {
           heading: 'Contáctenos',
-          body: 'Puede enviar sus preguntas sobre estos términos a {company} al {email} o al {phone}.',
+          body: 'Puede enviar sus preguntas sobre estos términos a {company}: {contact}.',
         },
       ],
     },

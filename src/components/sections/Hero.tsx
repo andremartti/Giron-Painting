@@ -6,7 +6,7 @@ import { ButtonLink } from '../ui/Button';
 import { Photo } from '../ui/Photo';
 
 export function Hero() {
-  const { t } = useLanguage();
+  const { t, f } = useLanguage();
 
   return (
     <section
@@ -76,7 +76,7 @@ export function Hero() {
                 }`}
               >
                 <span className="h-5 w-0.5 shrink-0 bg-brick-400" aria-hidden="true" />
-                {item}
+                {f(item)}
               </li>
             ))}
           </ul>

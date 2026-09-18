@@ -1,6 +1,6 @@
 import { Clock, Mail, MapPin, Phone, type LucideIcon } from 'lucide-react';
 import type { ReactNode } from 'react';
-import { company, emailHref, fullAddress, phoneHref } from '../../config/company';
+import { company, emailHref, fullAddress, hasEmail, phoneHref } from '../../config/company';
 import { useLanguage } from '../../i18n/LanguageContext';
 
 interface ContactItemProps {
@@ -44,7 +44,8 @@ function ContactItem({ icon: Icon, label, href, tone, children }: ContactItemPro
 
 /**
  * Phone, email, address, and hours from `src/config/company.ts`.
- * Phone and email become clickable links as soon as real values are entered.
+ * Phone and email become clickable links as soon as real values are entered;
+ * an empty email is hidden.
  */
 export function ContactDetails({ tone = 'light', compact = false }: { tone?: 'light' | 'dark'; compact?: boolean }) {
   const { t, lang } = useLanguage();
@@ -54,9 +55,11 @@ export function ContactDetails({ tone = 'light', compact = false }: { tone?: 'li
       <ContactItem icon={Phone} label={t.contact.phone} href={phoneHref()} tone={tone}>
         {company.phone.display}
       </ContactItem>
-      <ContactItem icon={Mail} label={t.contact.email} href={emailHref()} tone={tone}>
-        {company.email}
-      </ContactItem>
+      {hasEmail() && (
+        <ContactItem icon={Mail} label={t.contact.email} href={emailHref()} tone={tone}>
+          {company.email}
+        </ContactItem>
+      )}
       <ContactItem icon={MapPin} label={t.contact.address} tone={tone}>
         {fullAddress()}
       </ContactItem>

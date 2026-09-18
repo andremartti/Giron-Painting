@@ -22,9 +22,14 @@ function readStoredLanguage(): Language {
 
 type Vars = Record<string, string | number>;
 
-/** Replaces {tokens} in a string. {company} and {year} are always available. */
+/** Replaces {tokens} in a string. {company}, {years} (of experience), and {year} are always available. */
 export function fill(text: string, vars: Vars = {}): string {
-  const all: Vars = { company: company.name, year: new Date().getFullYear(), ...vars };
+  const all: Vars = {
+    company: company.name,
+    years: company.experienceYears,
+    year: new Date().getFullYear(),
+    ...vars,
+  };
   return text.replace(/\{(\w+)\}/g, (match, key: string) => (key in all ? String(all[key]) : match));
 }
 

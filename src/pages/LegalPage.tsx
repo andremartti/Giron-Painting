@@ -1,5 +1,5 @@
 import { ArrowLeft } from 'lucide-react';
-import { company } from '../config/company';
+import { contactLine } from '../config/company';
 import { useLanguage } from '../i18n/LanguageContext';
 
 interface LegalPageProps {
@@ -10,7 +10,7 @@ interface LegalPageProps {
 export function LegalPage({ kind }: LegalPageProps) {
   const { t, f } = useLanguage();
   const page = t.legal[kind];
-  const vars = { email: company.email, phone: company.phone.display };
+  const vars = { contact: contactLine(t.legal.or) };
 
   return (
     <main id="main" tabIndex={-1} className="bg-paper pt-32 pb-24 focus:outline-none sm:pt-40">

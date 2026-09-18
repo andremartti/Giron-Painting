@@ -1,4 +1,5 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Phone } from 'lucide-react';
+import { company, phoneHref } from '../../config/company';
 import { images } from '../../data/images';
 import { useLanguage } from '../../i18n/LanguageContext';
 import { ButtonLink } from '../ui/Button';
@@ -6,7 +7,8 @@ import { Photo } from '../ui/Photo';
 import { Reveal } from '../ui/Reveal';
 
 export function EstimateCta() {
-  const { t } = useLanguage();
+  const { t, f } = useLanguage();
+  const callHref = phoneHref();
 
   return (
     <section aria-labelledby="estimate-cta-title" className="relative isolate overflow-hidden bg-night py-24 text-white sm:py-32">
@@ -29,10 +31,18 @@ export function EstimateCta() {
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-white/80 sm:text-xl">{t.estimateCta.text}</p>
         </div>
-        <ButtonLink href="#contact" size="lg" className="mt-10 w-full sm:ml-10 sm:w-auto">
-          {t.estimateCta.button}
-          <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" aria-hidden="true" />
-        </ButtonLink>
+        <div className="mt-10 flex flex-col gap-3 sm:ml-10 sm:flex-row sm:gap-4">
+          <ButtonLink href="#contact" size="lg" className="w-full sm:w-auto">
+            {t.estimateCta.button}
+            <ArrowRight className="size-4 transition-transform group-hover/button:translate-x-1" aria-hidden="true" />
+          </ButtonLink>
+          {callHref && (
+            <ButtonLink href={callHref} size="lg" variant="outline-light" className="w-full backdrop-blur-sm sm:w-auto">
+              <Phone className="size-4" aria-hidden="true" />
+              {f(t.common.call, { phone: company.phone.display })}
+            </ButtonLink>
+          )}
+        </div>
       </Reveal>
     </section>
   );
